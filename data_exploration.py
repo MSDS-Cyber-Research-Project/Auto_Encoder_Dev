@@ -4,7 +4,8 @@ import time
 #let's measure how long it takes to import the dataset
 start_time = time.time()
 
-df = pd.read_csv("/host/data/auth_only_logons.txt", sep=',', names = ["time","src_user","dest_user","src_nt_host","dest_nt_host","auth_type","logon_type","auth_orientation","action"])
+#df = pd.read_csv("/host/data/auth_only_logons.txt", sep=',', names = ["time","src_user","dest_user","src_nt_host","dest_nt_host","auth_type","logon_type","auth_orientation","action"])
+df = pd.read_csv("/Users/alexaubrey/Documents/School/MSDS/Research Methods/project/auth_filtered_all_with_labels_sorted_2.txt", sep=',', names = ["time","src_user","dest_user","src_nt_host","dest_nt_host","is_malicious"])
 
 print("Load data time:")
 print(time.time() - start_time)
@@ -60,6 +61,8 @@ print(time.time() - prob_time)
 #TODO
 
 print(df.head())
+
+df.to_csv('auth_filtered_all_with_labels_sorted_2_with_labels.csv')
 
 end_time = time.time()
 print("Duration:")
